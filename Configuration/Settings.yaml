@@ -1,0 +1,16 @@
+TYPO3:
+  Neos:
+    typoScript:
+      autoInclude:
+        'CONECTO.Compressor': TRUE
+  TypoScript:
+    defaultContext:
+      'CONECTO.Compressor': 'CONECTO\Compressor\CompressionHelper'
+  Flow:
+    http:
+      chain:
+        'postprocess':
+          chain:
+            'compression':
+              position: 'before standardsCompliance'
+              component: 'CONECTO\Compressor\Flow\Http\Component\CompressionComponent'
